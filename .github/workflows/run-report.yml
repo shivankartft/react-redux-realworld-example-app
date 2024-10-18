@@ -1,7 +1,7 @@
 name: Process Allure Report
 
 on:
-  repository_dispatch:  # Triggered by repository A
+  workflow_dispatch:  # Triggered by repository A
 
 jobs:
   download-and-serve-report:
