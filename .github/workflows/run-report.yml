@@ -1,0 +1,23 @@
+name: Process Allure Report
+
+on:
+  repository_dispatch:  # Triggered by repository A
+
+jobs:
+  download-and-serve-report:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Download Allure Report
+      uses: actions/download-artifact@v2
+      with:
+        name: allure-report
+        path: allure-report
+
+    - name: Serve Allure Report
+      run: |
+        # Add commands to serve the report, e.g., using a static file server
+        npx http-server allure-report
