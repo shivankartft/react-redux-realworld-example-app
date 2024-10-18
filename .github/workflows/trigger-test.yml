@@ -3,11 +3,11 @@ name: Trigger LiveLike Assignment Workflow
 on:
   push:
     branches:
-      - main  # Trigger on push/merge to the main branch
+      - master  # Trigger on push/merge to the main branch
   pull_request:
     types: [closed]  # Trigger on merged PR
     branches:
-      - main  # Only trigger if the PR was merged into the main branch
+      - master  # Only trigger if the PR was merged into the main branch
 
 jobs:
   trigger-livelike-assignment-workflow:
