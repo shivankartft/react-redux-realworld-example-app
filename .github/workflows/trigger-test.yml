@@ -1,24 +1,23 @@
-name: Trigger Test Repo Workflow
+name: Trigger LiveLike Assignment Workflow
 
 on:
   push:
     branches:
-      - main   # Trigger on push/merge to the main branch
+      - main  # Trigger on push/merge to the main branch
   pull_request:
     types: [closed]  # Trigger on merged PR
     branches:
-      - main   # You can customize the branch here
+      - main  # Only trigger if the PR was merged into the main branch
 
 jobs:
-  trigger-test-workflow:
+  trigger-livelike-assignment-workflow:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Trigger Test Repository Workflow
+    - name: Trigger LiveLike Assignment Workflow
       run: |
         curl -X POST \
         -H "Authorization: token ${{ secrets.PAT }}" \
         -H "Accept: application/vnd.github.everest-preview+json" \
-        https://api.github.com/repos/your-org/test/actions/workflows/run-tests.yml/dispatches \
+        https://api.github.com/repos/shivankartft/livelike-assignment/actions/workflows/run-tests.yml/dispatches \
         -d '{"ref":"main"}'
-
